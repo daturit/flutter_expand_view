@@ -8,8 +8,8 @@ Flutter Intro Screen Onboarding is a flutter plugin that helps you make a cool i
 </p>
 
 <p>
-<img src = "https://github.com/daturit/intro_screen_onboarding/blob/master/intro_screen_onboarding/intro2.png?raw=true" align = "center" height = "550px"/>
-<img src = "https://github.com/daturit/intro_screen_onboarding/blob/master/intro_screen_onboarding/intro3.png?raw=true" align = "center" height = "550px"/>
+<img src = "https://github.com/daturit/flutter_expand_view/blob/main/flutter_expand_view/intro1.png?raw=true" align = "center" height = "550px"/>
+<img src = "https://github.com/daturit/flutter_expand_view/blob/main/flutter_expand_view/intro2.png?raw=true" align = "center" height = "550px"/>
 </p>
 
 <p>
