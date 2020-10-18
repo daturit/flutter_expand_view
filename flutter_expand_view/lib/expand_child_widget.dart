@@ -111,7 +111,6 @@ class _ExpandChildWidgetState extends State<ExpandChildWidget>
 
     _isExpanded = widget.expand;
     _isExpanded ? _controller.forward() : _controller.reverse();
-
   }
 
   @override
@@ -146,7 +145,7 @@ class _ExpandChildWidgetState extends State<ExpandChildWidget>
           child: Align(
             alignment: Alignment.topCenter,
             heightFactor:
-            widget.hideArrowOnExpanded ? 1 - _heightFactor.value : 1,
+                widget.hideArrowOnExpanded ? 1 - _heightFactor.value : 1,
             child: InkWell(
               onTap: _handleTap,
               child: ExpandArrowWidget(

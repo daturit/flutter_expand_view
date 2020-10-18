@@ -76,7 +76,7 @@ class ExpandArrowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final tooltipMessage = animation.value < 0.25
         ? collapsedHint ??
-        MaterialLocalizations.of(context).collapsedIconTapHint
+            MaterialLocalizations.of(context).collapsedIconTapHint
         : expandedHint ?? MaterialLocalizations.of(context).expandedIconTapHint;
 
     final isNotIcon = expandArrowStyle == ExpandArrowStyle.text ||
@@ -96,8 +96,7 @@ class ExpandArrowWidget extends StatelessWidget {
                 turns: animation,
                 child: Icon(
                   icon ?? Icons.expand_more,
-                  color:
-                  arrowColor ?? Colors.blueAccent,
+                  color: arrowColor ?? Colors.blueAccent,
                   size: arrowSize ?? 30,
                 ),
               ),
@@ -105,8 +104,8 @@ class ExpandArrowWidget extends StatelessWidget {
               const SizedBox(width: 2.0),
               DefaultTextStyle(
                 style: Theme.of(context).textTheme.subtitle2.copyWith(
-                  color: Theme.of(context).textTheme.caption.color,
-                ),
+                      color: Theme.of(context).textTheme.caption.color,
+                    ),
                 child: Text(
                   capitalArrowtext == true
                       ? tooltipMessage.toUpperCase()
@@ -125,10 +124,10 @@ class ExpandArrowWidget extends StatelessWidget {
     return expandArrowStyle != ExpandArrowStyle.icon
         ? arrow
         : Tooltip(
-      message: capitalArrowtext == true
-          ? tooltipMessage.toUpperCase()
-          : tooltipMessage,
-      child: arrow,
-    );
+            message: capitalArrowtext == true
+                ? tooltipMessage.toUpperCase()
+                : tooltipMessage,
+            child: arrow,
+          );
   }
 }

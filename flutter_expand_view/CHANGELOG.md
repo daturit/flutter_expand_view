@@ -1,3 +1,6 @@
+## [1.0.2] - 11/18/2020
+** Update description package
+
 ## [1.0.1] - 11/18/2020
 ** Update readme
 
