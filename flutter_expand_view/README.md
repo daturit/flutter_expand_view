@@ -1,6 +1,6 @@
 # flutter_expand_view
 
-Flutter Intro Screen Onboarding is a flutter plugin that helps you make a cool intro for your app. Create intro has never been easier and faster
+Flutter Expansion Collapse view is a flutter plugin that helps you make a Expansion Collapse view. Create Expansion Collapse view has never been easier and faster
 
 ## Animation
 <p>
