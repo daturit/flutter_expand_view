@@ -1,8 +1,8 @@
 name: flutter_expand_view
-description: A new Flutter package.
+description: A Flutter Expansion/Collapse view
 version: 0.0.1
-author:
-homepage:
+author: tuanla.khtn
+homepage: https://github.com/daturit/flutter_expand_view
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
