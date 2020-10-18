@@ -27,6 +27,9 @@ class TestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Expansion Collapse view'),
+      ),
       body: Column(
         children: [
           SizedBox(height: 100,),
