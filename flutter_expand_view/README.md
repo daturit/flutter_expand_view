@@ -12,10 +12,6 @@ Flutter Expansion Collapse view is a flutter plugin that helps you make a Expans
 <img src = "https://github.com/daturit/flutter_expand_view/blob/main/flutter_expand_view/intro2.png?raw=true" align = "center" height = "550px"/>
 </p>
 
-<p>
-<img src="https://media.giphy.com/media/KJO4pC9dwLms5o4IAv/giphy.gif?raw=true" align = "center" height = "650px">
-</p>
-
 ## Example Project
 
 There is a example project in the `example` folder. Check it out. Otherwise, keep reading to get up and running.
