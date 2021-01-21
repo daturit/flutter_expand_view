@@ -60,7 +60,7 @@ class ExpandArrowWidget extends StatelessWidget {
     Key key,
     this.collapsedHint,
     this.expandedHint,
-    @required this.animation,
+    this.animation,
     this.padding,
     this.onTap,
     this.arrowColor,

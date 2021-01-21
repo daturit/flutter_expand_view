@@ -1,3 +1,6 @@
+## [1.6] - 1/20/2020
+** Add more collapse Expanded
+
 ## [1.0.2] - 11/18/2020
 ** Update description package
 

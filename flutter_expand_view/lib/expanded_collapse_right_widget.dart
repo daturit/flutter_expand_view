@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'arrow_widget.dart';
 
 /// Default animation duration
-const Duration _kExpand = Duration(milliseconds: 260);
+const Duration _kExpand = Duration(milliseconds: 300);
 
 /// This widget unfolds a hidden widget to the user, called [child].
 /// This action is performed when the user clicks the 'expand' arrow.
-class ExpandChildWidget extends StatefulWidget {
+class ExpandedCollapseRightWidget extends StatefulWidget {
   /// Message used as a tooltip when the widget is minimized.
   /// Default value set to [MaterialLocalizations.of(context).collapsedIconTapHint].
   final String collapsedHint;
@@ -41,7 +42,7 @@ class ExpandChildWidget extends StatefulWidget {
   /// Autocapitalise tooltip text.
   final bool capitalArrowtext;
 
-  /// How long the expanding animation takes. Default is 260ms.
+  /// How long the expanding animation takes. Default is 300ms.
   final Duration animationDuration;
 
   /// This widget will be displayed if the user clicks the 'expand' arrow.
@@ -53,7 +54,19 @@ class ExpandChildWidget extends StatefulWidget {
   /// Ability to expand from init
   final bool expand;
 
-  const ExpandChildWidget({
+  /// this widget at header
+  final Widget header;
+
+  /// expand image
+  final String expandImage;
+
+  /// collapse image
+  final String collapseImage;
+
+  /// padding for button expand collapse
+  final double paddingBtnHeader;
+
+  const ExpandedCollapseRightWidget({
     Key key,
     this.collapsedHint,
     this.expandedHint,
@@ -66,16 +79,20 @@ class ExpandChildWidget extends StatefulWidget {
     this.capitalArrowtext = true,
     this.expand = false,
     this.animationDuration = _kExpand,
-    this.child,
+    @required this.child,
+    @required this.header,
+    this.expandImage,
+    this.collapseImage,
+    this.paddingBtnHeader = 0,
     this.hideArrowOnExpanded = false,
   })  : assert(hideArrowOnExpanded != null),
         super(key: key);
 
   @override
-  _ExpandChildWidgetState createState() => _ExpandChildWidgetState();
+  _ExpandedCollapseOpenOrderWidgetState createState() => _ExpandedCollapseOpenOrderWidgetState();
 }
 
-class _ExpandChildWidgetState extends State<ExpandChildWidget>
+class _ExpandedCollapseOpenOrderWidgetState extends State<ExpandedCollapseRightWidget>
     with SingleTickerProviderStateMixin {
   /// Custom animation curve for arrow controll.
   static final _easeInCurve = CurveTween(curve: Curves.easeInOutCubic);
@@ -134,6 +151,7 @@ class _ExpandChildWidgetState extends State<ExpandChildWidget>
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
+        _buildHeaderCollapse(context),
         ClipRect(
           child: Align(
             alignment: Alignment.topCenter,
@@ -145,25 +163,51 @@ class _ExpandChildWidgetState extends State<ExpandChildWidget>
           child: Align(
             alignment: Alignment.topCenter,
             heightFactor:
-                widget.hideArrowOnExpanded ? 1 - _heightFactor.value : 1,
-            child: InkWell(
-              onTap: _handleTap,
-              child: ExpandArrowWidget(
-                collapsedHint: widget.collapsedHint,
-                expandedHint: widget.expandedHint,
-                animation: _iconTurns,
-                padding: widget.arrowPadding,
-                onTap: _handleTap,
-                arrowColor: widget.arrowColor,
-                arrowSize: widget.arrowSize,
-                icon: widget.icon,
-                hintTextStyle: widget.hintTextStyle,
-                expandArrowStyle: widget.expandArrowStyle,
-                capitalArrowtext: widget.capitalArrowtext,
-              ),
-            ),
+            widget.hideArrowOnExpanded ? 1 - _heightFactor.value : 1,
+            child: Container(),
           ),
         ),
+      ],
+    );
+  }
+
+  Widget _buildHeaderCollapse(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          width: MediaQuery.of(context).size.width - 52,
+          child: widget.header,
+        ),
+        Container(
+          width: 52,
+          child: Row(
+            children: [
+              InkWell(
+                onTap: _handleTap,
+                child: Padding(
+                  padding: EdgeInsets.only(right: widget.paddingBtnHeader),
+                  child: Container(
+                    width: 52,
+                    height: 52,
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 16,
+                      height: 16,
+                      child: _isExpanded
+                          ? SvgPicture.asset(
+                          widget.collapseImage
+                      )
+                          : SvgPicture.asset(
+                          widget.expandImage
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }

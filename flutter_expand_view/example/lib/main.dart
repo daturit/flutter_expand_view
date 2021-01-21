@@ -32,7 +32,7 @@ class TestScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 100,),
+          SizedBox(height: 100),
           Container(
             margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
             width: MediaQuery.of(context).size.width - 40,
@@ -45,6 +45,7 @@ class TestScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
+                    margin: const EdgeInsets.only(left: 20),
                     height: 60,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -78,6 +79,7 @@ class TestScreen extends StatelessWidget {
               ),
             ),
           ),
+      SizedBox(height: 100),
         ],
       ),
     );

@@ -4,12 +4,14 @@ version: 1.0.2
 homepage: https://github.com/daturit/flutter_expand_view
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
   flutter: ">=1.17.0 <2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
+  flutter_svg: ^0.19.0
 
 dev_dependencies:
   flutter_test:
