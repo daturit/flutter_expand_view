@@ -4,12 +4,7 @@ Flutter Expansion Collapse view is a flutter plugin that helps you make a Expans
 
 ## Animation
 <p>
-<img src="https://media.giphy.com/media/KJO4pC9dwLms5o4IAv/giphy.gif?raw=true" align = "center" height = "650px">
-</p>
-
-<p>
-<img src = "https://github.com/daturit/flutter_expand_view/blob/main/flutter_expand_view/intro1.png?raw=true" align = "center" height = "550px"/>
-<img src = "https://github.com/daturit/flutter_expand_view/blob/main/flutter_expand_view/intro2.png?raw=true" align = "center" height = "550px"/>
+<img src="https://media.giphy.com/media/u0ilIGL2JTLEDykcg0/giphy.gif?raw=true" align = "center" height = "650px">
 </p>
 
 ## Example Project
@@ -23,7 +18,7 @@ There is a example project in the `example` folder. Check it out. Otherwise, kee
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_expand_view/expand_child_widget.dart';
-
+import 'package:flutter_expand_view/expanded_collapse_right_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -45,8 +40,6 @@ class MyApp extends StatelessWidget {
 }
 
 class TestScreen extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +48,7 @@ class TestScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 100,),
+          SizedBox(height: 100),
           Container(
             margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
             width: MediaQuery.of(context).size.width - 40,
@@ -68,12 +61,16 @@ class TestScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
+                    margin: const EdgeInsets.only(left: 20),
                     height: 60,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Flutter: Expansion/Collapse view', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-
+                        Text(
+                          'Flutter: Expansion/Collapse view',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w600),
+                        ),
                       ],
                     ),
                   ),
@@ -87,7 +84,7 @@ class TestScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Container(
-                                width: MediaQuery.of(context).size.width  - 50,
+                                width: MediaQuery.of(context).size.width - 50,
                                 height: 100,
                                 color: Colors.blueAccent,
                               )
@@ -101,11 +98,45 @@ class TestScreen extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(height: 100),
+          ExpandedCollapseRightWidget(
+            expand: false,
+            collapseImage: 'assets/Ic_12_collapse@1.5x.svg',
+            expandImage: 'assets/Ic_12_expand@1.5x.svg',
+            header: Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                'Expansion Collapse',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black),
+              ),
+            ),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width - 50,
+                        height: 100,
+                        color: Colors.blueAccent,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(height: 100),
         ],
       ),
     );
   }
 }
+
 
 
 ```

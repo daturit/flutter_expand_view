@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_expand_view/expand_child_widget.dart';
-
+import 'package:flutter_expand_view/expanded_collapse_right_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,8 +22,6 @@ class MyApp extends StatelessWidget {
 }
 
 class TestScreen extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,8 +48,11 @@ class TestScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Flutter: Expansion/Collapse view', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-
+                        Text(
+                          'Flutter: Expansion/Collapse view',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w600),
+                        ),
                       ],
                     ),
                   ),
@@ -65,7 +66,7 @@ class TestScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Container(
-                                width: MediaQuery.of(context).size.width  - 50,
+                                width: MediaQuery.of(context).size.width - 50,
                                 height: 100,
                                 color: Colors.blueAccent,
                               )
@@ -79,7 +80,39 @@ class TestScreen extends StatelessWidget {
               ),
             ),
           ),
-      SizedBox(height: 100),
+          SizedBox(height: 100),
+          ExpandedCollapseRightWidget(
+            expand: false,
+            collapseImage: 'assets/Ic_12_collapse@1.5x.svg',
+            expandImage: 'assets/Ic_12_expand@1.5x.svg',
+            header: Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                'Expansion Collapse',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black),
+              ),
+            ),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width - 50,
+                        height: 100,
+                        color: Colors.blueAccent,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(height: 100),
         ],
       ),
     );
