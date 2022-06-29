@@ -11,30 +11,30 @@ const Duration _kExpand = Duration(milliseconds: 300);
 class ExpandedCollapseRightWidget extends StatefulWidget {
   /// Message used as a tooltip when the widget is minimized.
   /// Default value set to [MaterialLocalizations.of(context).collapsedIconTapHint].
-  final String collapsedHint;
+  final String? collapsedHint;
 
   /// Message used as a tooltip when the widget is maximazed.
   /// Default value set to [MaterialLocalizations.of(context).expandedIconTapHint].
-  final String expandedHint;
+  final String? expandedHint;
 
   /// Defines padding value.
   ///
   /// Default value if this widget's icon-only: [EdgeInsets.all(4)].
   /// If text is shown: [EdgeInsets.all(8)].
-  final EdgeInsets arrowPadding;
+  final EdgeInsets? arrowPadding;
 
   /// Color of the arrow widget. Defaults to the caption text style color.
-  final Color arrowColor;
+  final Color? arrowColor;
 
   /// Size of the arrow widget. Default is [30].
   final double arrowSize;
 
   /// Icon that will be used instead of an arrow.
   /// Default is [Icons.expand_more].
-  final IconData icon;
+  final IconData? icon;
 
   /// Style of the displayed message.
-  final TextStyle hintTextStyle;
+  final TextStyle? hintTextStyle;
 
   /// Defines arrow rendering style.
   final ExpandArrowStyle expandArrowStyle;
@@ -58,16 +58,16 @@ class ExpandedCollapseRightWidget extends StatefulWidget {
   final Widget header;
 
   /// expand image
-  final String expandImage;
+  final String? expandImage;
 
   /// collapse image
-  final String collapseImage;
+  final String? collapseImage;
 
   /// padding for button expand collapse
   final double paddingBtnHeader;
 
   const ExpandedCollapseRightWidget({
-    Key key,
+    Key? key,
     this.collapsedHint,
     this.expandedHint,
     this.arrowPadding,
@@ -79,8 +79,8 @@ class ExpandedCollapseRightWidget extends StatefulWidget {
     this.capitalArrowtext = true,
     this.expand = false,
     this.animationDuration = _kExpand,
-    @required this.child,
-    @required this.header,
+    required this.child,
+    required this.header,
     this.expandImage,
     this.collapseImage,
     this.paddingBtnHeader = 0,
@@ -101,13 +101,13 @@ class _ExpandedCollapseOpenOrderWidgetState extends State<ExpandedCollapseRightW
   static final _halfTurn = Tween<double>(begin: 0.0, end: 0.5);
 
   /// General animation controller.
-  AnimationController _controller;
+  late AnimationController _controller;
 
   /// Animations for height control.
-  Animation<double> _heightFactor;
+  late Animation<double> _heightFactor;
 
   /// Animations for arrow's rotation control.
-  Animation<double> _iconTurns;
+  Animation<double>? _iconTurns;
 
   /// Auxiliary variable to controll expand status.
   bool _isExpanded = false;
@@ -147,7 +147,7 @@ class _ExpandedCollapseOpenOrderWidgetState extends State<ExpandedCollapseRightW
   /// Builds the widget itself. If the [_isExpanded] parameter is 'true',
   /// the [child] parameter will contain the child information, passed to
   /// this instance of the object.
-  Widget _buildChild(BuildContext context, Widget child) {
+  Widget _buildChild(BuildContext context, Widget? child) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -196,10 +196,10 @@ class _ExpandedCollapseOpenOrderWidgetState extends State<ExpandedCollapseRightW
                       height: 16,
                       child: _isExpanded
                           ? SvgPicture.asset(
-                          widget.collapseImage
+                          widget.collapseImage!
                       )
                           : SvgPicture.asset(
-                          widget.expandImage
+                          widget.expandImage!
                       ),
                     ),
                   ),

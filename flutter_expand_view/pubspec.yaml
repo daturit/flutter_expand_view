@@ -1,17 +1,16 @@
 name: flutter_expand_view
 description: Flutter Expansion Collapse view is a flutter plugin that helps you make a Expansion Collapse view. Create Expansion Collapse view has never been easier and faster
-version: 1.6.1
+version: 1.6.2
 homepage: https://github.com/daturit/flutter_expand_view
 
 environment:
-  sdk: ">=2.10.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: ">=1.17.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
-  flutter_svg: ^0.19.0
+  flutter_svg: ^1.1.0
 
 dev_dependencies:
   flutter_test:

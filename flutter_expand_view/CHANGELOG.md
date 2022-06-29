@@ -1,3 +1,6 @@
+## [1.6.2] - 6/28/2022
+** Migrate Null Safety.
+
 ## [1.6.1] - 1/20/2020
 ** Add more collapse Expanded
 

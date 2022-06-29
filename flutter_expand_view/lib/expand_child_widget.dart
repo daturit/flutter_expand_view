@@ -10,30 +10,30 @@ const Duration _kExpand = Duration(milliseconds: 260);
 class ExpandChildWidget extends StatefulWidget {
   /// Message used as a tooltip when the widget is minimized.
   /// Default value set to [MaterialLocalizations.of(context).collapsedIconTapHint].
-  final String collapsedHint;
+  final String? collapsedHint;
 
   /// Message used as a tooltip when the widget is maximazed.
   /// Default value set to [MaterialLocalizations.of(context).expandedIconTapHint].
-  final String expandedHint;
+  final String? expandedHint;
 
   /// Defines padding value.
   ///
   /// Default value if this widget's icon-only: [EdgeInsets.all(4)].
   /// If text is shown: [EdgeInsets.all(8)].
-  final EdgeInsets arrowPadding;
+  final EdgeInsets? arrowPadding;
 
   /// Color of the arrow widget. Defaults to the caption text style color.
-  final Color arrowColor;
+  final Color? arrowColor;
 
   /// Size of the arrow widget. Default is [30].
   final double arrowSize;
 
   /// Icon that will be used instead of an arrow.
   /// Default is [Icons.expand_more].
-  final IconData icon;
+  final IconData? icon;
 
   /// Style of the displayed message.
-  final TextStyle hintTextStyle;
+  final TextStyle? hintTextStyle;
 
   /// Defines arrow rendering style.
   final ExpandArrowStyle expandArrowStyle;
@@ -45,7 +45,7 @@ class ExpandChildWidget extends StatefulWidget {
   final Duration animationDuration;
 
   /// This widget will be displayed if the user clicks the 'expand' arrow.
-  final Widget child;
+  final Widget? child;
 
   /// Ability to hide arrow from display when content is expanded.
   final bool hideArrowOnExpanded;
@@ -54,7 +54,7 @@ class ExpandChildWidget extends StatefulWidget {
   final bool expand;
 
   const ExpandChildWidget({
-    Key key,
+    Key? key,
     this.collapsedHint,
     this.expandedHint,
     this.arrowPadding,
@@ -84,13 +84,13 @@ class _ExpandChildWidgetState extends State<ExpandChildWidget>
   static final _halfTurn = Tween<double>(begin: 0.0, end: 0.5);
 
   /// General animation controller.
-  AnimationController _controller;
+  late AnimationController _controller;
 
   /// Animations for height control.
-  Animation<double> _heightFactor;
+  late Animation<double> _heightFactor;
 
   /// Animations for arrow's rotation control.
-  Animation<double> _iconTurns;
+  late Animation<double> _iconTurns;
 
   /// Auxiliary variable to controll expand status.
   bool _isExpanded = false;
@@ -130,7 +130,7 @@ class _ExpandChildWidgetState extends State<ExpandChildWidget>
   /// Builds the widget itself. If the [_isExpanded] parameter is 'true',
   /// the [child] parameter will contain the child information, passed to
   /// this instance of the object.
-  Widget _buildChild(BuildContext context, Widget child) {
+  Widget _buildChild(BuildContext context, Widget? child) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
